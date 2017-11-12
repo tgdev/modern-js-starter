@@ -1,0 +1,25 @@
+{
+  "name": "modern-js-starter",
+  "version": "1.0.0",
+  "description": "A small set of tools to get a modern javascript project up and running. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tgdev/modern-js-starter.git"
+  },
+  "keywords": [
+    "es6",
+    "babel",
+    "webpack",
+    "jest"
+  ],
+  "author": "Tom Gillard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tgdev/modern-js-starter/issues"
+  },
+  "homepage": "https://github.com/tgdev/modern-js-starter#readme"
+}
