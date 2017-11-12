@@ -1,5 +1,6 @@
 // Define prompts for use with npm 'prompt' module in setup script
-export default [
+// eslint-disable-next-line no-undef
+module.exports = [
   {
     name: 'projectName',
     description: 'Project name (default: new-project)',

@@ -3,12 +3,16 @@
  * https://github.com/coryhouse/react-slingshot/tree/master/tools/setup
  */
 
-import rimraf from 'rimraf';
-import replace from 'replace';
-import prompt from 'prompt';
+/* eslint-disable no-var */
+var rimraf = require('rimraf');
+var chalk = require('chalk');
+var replace = require('replace');
+var prompt = require('prompt');
+var prompts = require('./setupPrompts');
 
-import prompts from './setup-prompts';
-import { chalkSuccess, chalkWarn, chalkProcessing } from '../chalk-config';
+var chalkSuccess = chalk.green;
+var chalkProcessing = chalk.blue;
+var chalkWarn = chalk.red;
 
 /* eslint-disable no-console */
 console.log(chalkSuccess('Dependencies installed.'));
@@ -16,12 +20,12 @@ console.log(chalkSuccess('Dependencies installed.'));
 prompt.start();
 
 console.log(chalkWarn('WARNING:  Preparing to delete local git repository...'));
-prompt.get([{name: 'deleteGit', description: 'Delete the git repository?  [Y/n]'}], (err, result) => {
+prompt.get([{name: 'deleteGit', description: 'Delete the git repository?  [Y/n]'}], function(err, result) {
 
   // eslint-disable-next-line no-undef
   if (err) { process.exit(1); }
 
-  const deleteGit = result.deleteGit.toUpperCase();
+  var deleteGit = result.deleteGit.toUpperCase();
 
   function updatePackage() {
     console.log(chalkProcessing('Updating package.json settings:'));
@@ -50,9 +54,13 @@ prompt.get([{name: 'deleteGit', description: 'Delete the git repository?  [Y/n]'
           key: 'description',
           value: result.description
         },
-        // simply use an empty URL here to clear the existing repo URL
+        // simply use an empty string here to clear the existing repo URL and homepage
         {
           key: 'url',
+          value: ''
+        },
+        {
+          key: 'homepage',
           value: ''
         }
       ];
@@ -108,3 +116,4 @@ prompt.get([{name: 'deleteGit', description: 'Delete the git repository?  [Y/n]'
   }
 });
 /* eslint-enable no-console */
+/* eslint-enable no-var */
